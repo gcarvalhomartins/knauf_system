@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Knauf Industries</title>
+    <script>
+      // GitHub Pages não tem fallback de SPA: rotas internas (ex.: /knauf_system/dashboard)
+      // caem neste 404.html. Guardamos a rota original e voltamos para a raiz da base,
+      // onde o app assume o controle e restaura a URL (ver src/main.tsx).
+      (function () {
+        var BASE = '/knauf_system/';
+        try {
+          var l = window.location;
+          sessionStorage.setItem('knauf.redirect', l.pathname + l.search);
+        } catch (e) {
+          /* ignora */
+        }
+        window.location.replace(BASE);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando…</p>
+  </body>
+</html>
