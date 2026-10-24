@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:pages": "tsc -b && vite build --base=/knauf_system/",
+    "publish:pages": "npm run build:pages && node scripts/publish-gh-pages.cjs",
     "preview": "vite preview",
     "test": "node scripts/run-tests.mjs"
   },

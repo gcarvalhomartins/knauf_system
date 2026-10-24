@@ -20,6 +20,25 @@ npm test         # suíte do domínio (node:test + esbuild)
 
 Faça login com **matrícula + senha** (senhas de demonstração: `1` a `6`, uma por usuário).
 
+## Deploy (GitHub Pages)
+
+Publicação: <https://gcarvalhomartins.github.io/knauf_system/>
+
+O deploy é feito pelo GitHub Actions (`.github/workflows/deploy.yml`): a cada push na `main`
+o app é compilado com `base=/knauf_system/` e publicado no Pages.
+
+```bash
+npm run build:pages   # build local já com o base do Pages
+npm run publish:pages # build + publica na branch gh-pages (deploy por branch)
+```
+
+Pontos de atenção do GitHub Pages (já configurados no projeto):
+
+- `base` do Vite = `/knauf_system/` → assets com o prefixo correto.
+- `basename` do React Router = `/knauf_system` → rotas internas funcionam.
+- `public/404.html` → fallback de SPA (o Pages não tem rewrite): guarda a rota e volta à raiz.
+- `public/.nojekyll` → evita o processamento Jekyll.
+
 ## Módulos
 
 | Rota | Conteúdo |
